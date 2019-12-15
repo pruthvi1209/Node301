@@ -1,0 +1,15 @@
+{
+    "apps" : [
+        {
+            "name" : "restaurant-service",
+            "script" : "./src/index.js",
+            "watch": true
+        },
+        {
+            "name": "order-service",
+            "script": "../Ordering/src/index.js",
+            "watch": true,
+            "max-memory-restart" : "15MB"
+        }
+    ]
+}
