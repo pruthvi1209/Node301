@@ -2,5 +2,5 @@ const app = require('./app/app');
 
 require('./config/db');
 
-
-app.listen('4000', () => console.log("OrderService Running:4000"));
+const PORT = process.env.PORT|| 4040
+app.listen(PORT, () => console.log(`OrderService Running: ${PORT}`));

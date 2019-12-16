@@ -17,9 +17,9 @@ serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
   restaurant-service:
-    url: 'http://localhost:3000'
+    url: 'http://localhost:3030'
   order-service:
-    url: 'http://localhost:4000'
+    url: 'http://localhost:4040'
 
 policies:
   - basic-auth
@@ -53,9 +53,21 @@ pipelines:
               changeOrigin: true
   place-order-pipeline:
     apiEndpoints:
-      - ordering-api
+      -  ordering-api
+
     policies:
+      - key-auth: 
       - proxy:
           - action:
               serviceEndpoint: order-service
               changeOrigin: true
+  
+  # place-order-pipeline:
+  #   apiEndpoints:
+  #     - ordering-api
+  #   policies:
+  #     -key-auth:
+  #     - proxy:
+  #         - action:
+  #             serviceEndpoint: order-service
+  #             changeOrigin: true
